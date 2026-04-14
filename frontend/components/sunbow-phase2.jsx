@@ -1796,6 +1796,138 @@ function WAButton() {
     );
 }
 
+// ── POPUP CONFIG ──────────────────────────────────────────────
+// TODO: Client edits these from admin panel (Phase 4)
+// For now change text/dates here manually
+const POPUP_CONFIG = {
+    enabled: true,
+    triggerAfterSeconds: 4,     // show after 4 seconds
+    showOncePerSession: true,   // don't annoy repeat visitors
+
+    // Festivals — set dates, auto-activates in range
+    festivals: [
+        {
+            name: "Diwali Special",
+            active: true,           // ← client toggles this
+            startDate: "2024-10-15",
+            endDate: "2024-11-05",
+            badge: "🪔 Diwali Special Offer",
+            title: "Illuminate your business this Diwali",
+            sub: "Special pricing on all fiberglass and silicone sleeves",
+            offer1: "15% off bulk orders",
+            offer2: "Free shipping above ₹50K",
+            cta: "Get Diwali Quote on WhatsApp",
+            color: "#FF8C00",
+            expires: "2024-11-05",
+        },
+        // TODO: Add more festivals
+        // { name: "Republic Day", startDate: "2025-01-24", endDate: "2025-01-27", ... }
+        // { name: "Independence Day", startDate: "2025-08-13", endDate: "2025-08-16", ... }
+    ],
+
+    // Always-on discount popup (when no festival is active)
+    default: {
+        badge: "💰 Bulk Order Discount",
+        title: "Order more, save more",
+        sub: "Tiered pricing for wholesale and export orders",
+        offer1: "500m+ → 10% off",
+        offer2: "2000m+ → 20% off",
+        cta: "Calculate my savings",
+        color: "#185FA5",
+    }
+};
+
+function PopupBanner() {
+    const [visible, setVisible] = useState(false);
+
+    // Find active festival or use default
+    const today = new Date();
+    const festival = POPUP_CONFIG.festivals.find(f => {
+        if (!f.active) return false;
+        return today >= new Date(f.startDate) && today <= new Date(f.endDate);
+    });
+    const popup = festival || POPUP_CONFIG.default;
+
+    useEffect(() => {
+        if (!POPUP_CONFIG.enabled) return;
+        if (sessionStorage.getItem("popup_shown")) return; // once per session
+        const t = setTimeout(() => {
+            setVisible(true);
+            sessionStorage.setItem("popup_shown", "1");
+        }, POPUP_CONFIG.triggerAfterSeconds * 1000);
+        return () => clearTimeout(t);
+    }, []);
+
+    if (!visible) return null;
+
+    return (
+        <div style={{
+            position: "fixed", inset: 0, zIndex: 500,
+            background: "rgba(7,7,15,0.85)", backdropFilter: "blur(8px)",
+            display: "flex", alignItems: "center", justifyContent: "center",
+            padding: "20px", animation: "fadeIn .3s ease"
+        }} onClick={() => setVisible(false)}>
+            <div onClick={e => e.stopPropagation()} style={{
+                background: "#0E0E1C", border: `1px solid ${popup.color}44`,
+                borderRadius: "4px", width: "400px", maxWidth: "95%",
+                boxShadow: `0 0 60px ${popup.color}33`, overflow: "hidden"
+            }}>
+                {/* Header strip */}
+                <div style={{ background: `${popup.color}22`, padding: "28px 28px 20px", textAlign: "center" }}>
+                    <div style={{
+                        fontSize: "13px", color: popup.color, letterSpacing: "2px",
+                        fontFamily: "'Orbitron',sans-serif", marginBottom: "10px"
+                    }}>{popup.badge}</div>
+                    <h3 style={{
+                        fontFamily: "'Rajdhani',sans-serif", fontSize: "24px",
+                        fontWeight: 700, color: "#fff", margin: "0 0 8px"
+                    }}>{popup.title}</h3>
+                    <p style={{
+                        fontFamily: "'Inter',sans-serif", fontSize: "13px",
+                        color: "rgba(255,255,255,.55)", margin: 0
+                    }}>{popup.sub}</p>
+                </div>
+
+                {/* Offer chips */}
+                <div style={{ padding: "20px 28px" }}>
+                    <div style={{ display: "flex", gap: "8px", marginBottom: "16px" }}>
+                        {[popup.offer1, popup.offer2].map((o, i) => (
+                            <div key={i} style={{
+                                flex: 1, background: `${popup.color}18`,
+                                border: `1px solid ${popup.color}33`, padding: "8px 12px",
+                                textAlign: "center", fontFamily: "'Rajdhani',sans-serif",
+                                fontSize: "12px", fontWeight: 700, letterSpacing: "1px", color: popup.color
+                            }}>
+                                {o}
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* CTA */}
+                    <a href={`https://wa.me/918048970649?text=Hi, I saw your ${popup.badge} and want a quote`}
+                        target="_blank" rel="noopener noreferrer"
+                        style={{
+                            display: "block", background: popup.color, color: "#fff",
+                            padding: "14px", textAlign: "center", textDecoration: "none",
+                            fontFamily: "'Rajdhani',sans-serif", fontSize: "13px",
+                            letterSpacing: "2px", fontWeight: 700,
+                            clipPath: "polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%)"
+                        }}>
+                        {popup.cta} ▸
+                    </a>
+
+                    {/* Dismiss */}
+                    <button onClick={() => setVisible(false)} style={{
+                        display: "block", width: "100%", marginTop: "10px", background: "none",
+                        border: "none", color: "rgba(255,255,255,.3)", cursor: "pointer",
+                        fontFamily: "'Inter',sans-serif", fontSize: "12px", padding: "6px"
+                    }}>No thanks, close</button>
+                </div>
+            </div>
+        </div>
+    );
+}
+
 /* ─────────────────────────────────────────────────────────────
    APP ROOT
 ───────────────────────────────────────────────────────────── */
@@ -1803,6 +1935,7 @@ export default function App() {
     return (
         <>
             <GlobalStyles />
+            <PopupBanner />
             <Navbar />
             <Hero />
             <Ticker />
@@ -1843,3 +1976,11 @@ export default function App() {
  *  ✏️  WhatsApp automation on form submit
  * ============================================================
  */
+// 📋 Your Immediate Checklist from Client
+// Ask the client for these things right now:
+
+// Product photos — at least 2-3 per product
+// GST number
+// Certification logos (ISO, UL, CE)
+// Exact product list — confirm all 9 or add more
+// Company email — verify info@sunbowinsulation.in

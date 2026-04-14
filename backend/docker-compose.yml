@@ -1,0 +1,43 @@
+# ================================================================
+#  DOCKER COMPOSE — Local Development
+#  Starts PostgreSQL + pgAdmin (DB viewer)
+# ================================================================
+#  Run: docker-compose up -d
+#  Stop: docker-compose down
+# ================================================================
+
+version: "3.9"
+
+services:
+
+  # ── PostgreSQL Database ──────────────────────────────────────
+  postgres:
+    image: postgres:16-alpine
+    container_name: sunbow_postgres
+    environment:
+      POSTGRES_USER: sunbow
+      POSTGRES_PASSWORD: sunbow123
+      POSTGRES_DB: sunbow_db
+    ports:
+      - "5432:5432" # localhost:5432
+    volumes:
+      - sunbow_pgdata:/var/lib/postgresql/data # data persists
+    restart: unless-stopped
+
+  # ── pgAdmin (visual DB viewer) ────────────────────────────────
+  # Open: http://localhost:5050
+  # Login: admin@sunbow.com / admin123
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: sunbow_pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@sunbow.com
+      PGADMIN_DEFAULT_PASSWORD: admin123
+    ports:
+      - "5050:80" # localhost:5050
+    depends_on:
+      - postgres
+    restart: unless-stopped
+
+volumes:
+  sunbow_pgdata:
