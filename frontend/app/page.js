@@ -1,5 +1,4 @@
-// app/page.js
-import SunbowApp from "../components/sunbow-phase2";
+import SunbowApp from "../components/SunbowApp";
 
 export default function Home() {
   return <SunbowApp />;
