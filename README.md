@@ -1,5 +1,7 @@
 # Sunbow Insulation E-Commerce Platform
-![](https://github.com/Pu5hk4r/sunbow-insulation/blob/main/demo.mp4)
+### Work IN Progress - Making for client 
+![](https://github.com/Pu5hk4r/sunbow-insulation/blob/main/demo1.png)
+![](https://github.com/Pu5hk4r/sunbow-insulation/blob/main/demo2.png)
 
 A production-grade, full-stack B2B e-commerce platform built for Sunbow Insulation. This application transforms standard product browsing into an interactive, highly-optimized e-commerce experience with advanced 3D visualizers, AI integrations, and a high-performance backend architecture.
 
