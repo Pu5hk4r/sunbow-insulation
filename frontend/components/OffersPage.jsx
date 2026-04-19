@@ -12,7 +12,7 @@ export default function OffersPage() {
             <FloatingContact />
 
             <section style={{
-                padding: "160px 5% 100px", background: "var(--dark)", color: "#fff",
+                padding: "160px 5% 100px", background: "var(--dark)", color: "var(--title)",
                 position: "relative", minHeight: "100vh"
             }}>
                 <HexBg opacity={0.05} />
@@ -47,7 +47,7 @@ export default function OffersPage() {
                                 }}>{offer.title}</div>
                                 <div style={{
                                     fontFamily: "'Rajdhani', sans-serif", fontSize: "48px",
-                                    fontWeight: 700, color: "#fff", marginBottom: "16px"
+                                    fontWeight: 700, color: "var(--title)", marginBottom: "16px"
                                 }}>{offer.discount}</div>
                                 <p style={{
                                     fontFamily: "'Inter', sans-serif", fontSize: "14px",

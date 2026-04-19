@@ -12,7 +12,7 @@ export default function Ticker() {
                 {items.map((t, i) => (
                     <span key={i} style={{
                         fontFamily: "'Orbitron',sans-serif", fontSize: "11px",
-                        letterSpacing: "4px", fontWeight: 700, color: "#fff",
+                        letterSpacing: "4px", fontWeight: 700, color: "var(--title)",
                         whiteSpace: "nowrap", padding: "0 32px",
                     }}>◆ {t}</span>
                 ))}

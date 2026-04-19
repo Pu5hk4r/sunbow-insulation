@@ -48,8 +48,8 @@ export default function ProductsGrid() {
                             onClick={() => setCat(c.id)}
                             style={{
                                 background: cat === c.id ? "var(--orange)" : "transparent",
-                                border: cat === c.id ? "1px solid var(--orange)" : "1px solid rgba(255,255,255,.1)",
-                                color: cat === c.id ? "#fff" : "var(--muted)",
+                                border: cat === c.id ? "1px solid var(--orange)" : "1px solid rgba(var(--text-rgb), .1)",
+                                color: cat === c.id ? "var(--title)" : "var(--muted)",
                                 padding: "8px 20px",
                                 fontFamily: "'Rajdhani',sans-serif", fontSize: "12px",
                                 letterSpacing: "2px", fontWeight: 700, cursor: "pointer", transition: "all .22s",
@@ -74,7 +74,7 @@ export default function ProductsGrid() {
                                 background: "var(--card)",
                                 border: hovered === p.id
                                     ? `1px solid ${p.color}55`
-                                    : "1px solid rgba(255,255,255,.06)",
+                                    : "1px solid rgba(var(--text-rgb), .06)",
                                 padding: "32px", position: "relative", overflow: "hidden",
                                 opacity: inView ? 1 : 0,
                                 transform: inView ? "none" : "translateY(40px)",
@@ -114,7 +114,7 @@ export default function ProductsGrid() {
 
                             <h3 style={{
                                 fontFamily: "'Rajdhani',sans-serif", fontSize: "21px",
-                                fontWeight: 700, color: "#fff", margin: "0 0 4px", letterSpacing: "1px"
+                                fontWeight: 700, color: "var(--title)", margin: "0 0 4px", letterSpacing: "1px"
                             }}>{p.name}</h3>
 
                             <div style={{
@@ -128,15 +128,15 @@ export default function ProductsGrid() {
                                         <span key={j} style={{
                                             fontFamily: "'Rajdhani',sans-serif", fontSize: "11px",
                                             fontWeight: 600, letterSpacing: "1px",
-                                            background: "rgba(255,255,255,.05)",
-                                            border: "1px solid rgba(255,255,255,.08)",
-                                            padding: "3px 10px", color: "rgba(255,255,255,.6)",
+                                            background: "rgba(var(--text-rgb), .05)",
+                                            border: "1px solid rgba(var(--text-rgb), .08)",
+                                            padding: "3px 10px", color: "rgba(var(--text-rgb), .6)",
                                         }}>{s}</span>
                                     ))}
                             </div>
 
                             <p style={{
-                                fontSize: "13px", color: "rgba(255,255,255,.42)",
+                                fontSize: "13px", color: "rgba(var(--text-rgb), .42)",
                                 fontFamily: "'Inter',sans-serif", lineHeight: 1.7,
                                 marginBottom: "22px", fontWeight: 300,
                             }}>{p.desc}</p>

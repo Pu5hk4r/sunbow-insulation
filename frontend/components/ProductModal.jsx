@@ -35,7 +35,7 @@ export default function ProductModal({ product, onClose }) {
             >
                 <button onClick={onClose} style={{
                     position: "absolute", top: "16px", right: "16px", zIndex: 10,
-                    background: "rgba(255,255,255,.1)", border: "none", color: "#fff",
+                    background: "rgba(var(--text-rgb), .1)", border: "none", color: "var(--title)",
                     width: "36px", height: "36px", cursor: "pointer", fontSize: "16px",
                 }}>✕</button>
 
@@ -74,7 +74,7 @@ export default function ProductModal({ product, onClose }) {
                                 {product.certifications.map((cert, i) => (
                                     <span key={i} style={{
                                         fontFamily: "'Orbitron',sans-serif", fontSize: "9px", letterSpacing: "1px",
-                                        color: "var(--muted)", border: "1px solid rgba(255,255,255,.1)",
+                                        color: "var(--muted)", border: "1px solid rgba(var(--text-rgb), .1)",
                                         padding: "3px 10px"
                                     }}>{cert}</span>
                                 ))}
@@ -87,7 +87,7 @@ export default function ProductModal({ product, onClose }) {
                         <div className="tag" style={{ marginBottom: "10px" }}>▸ {product.cat}</div>
                         <h2 style={{
                             fontFamily: "'Rajdhani',sans-serif", fontSize: "28px", fontWeight: 700,
-                            color: "#fff", marginBottom: "6px", lineHeight: 1.1
+                            color: "var(--title)", marginBottom: "6px", lineHeight: 1.1
                         }}>{product.name}</h2>
                         <div style={{
                             fontFamily: "'Orbitron',sans-serif", fontSize: "10px", letterSpacing: "2px",
@@ -103,9 +103,9 @@ export default function ProductModal({ product, onClose }) {
                                 .filter(Boolean).map((s, i) => (
                                     <span key={i} style={{
                                         fontFamily: "'Rajdhani',sans-serif", fontSize: "11px", fontWeight: 600,
-                                        letterSpacing: "1px", background: "rgba(255,255,255,.05)", 
-                                        border: "1px solid rgba(255,255,255,.08)",
-                                        padding: "4px 12px", color: "rgba(255,255,255,.65)"
+                                        letterSpacing: "1px", background: "rgba(var(--text-rgb), .05)", 
+                                        border: "1px solid rgba(var(--text-rgb), .08)",
+                                        padding: "4px 12px", color: "rgba(var(--text-rgb), .65)"
                                     }}>{s}</span>
                                 ))}
                         </div>
@@ -119,8 +119,8 @@ export default function ProductModal({ product, onClose }) {
                             {product.specs.map((s, i) => (
                                 <div key={i} style={{
                                     display: "flex", justifyContent: "space-between",
-                                    padding: "10px 16px", borderTop: "1px solid rgba(255,255,255,.04)",
-                                    background: i % 2 === 0 ? "rgba(255,255,255,.01)" : "transparent",
+                                    padding: "10px 16px", borderTop: "1px solid rgba(var(--text-rgb), .04)",
+                                    background: i % 2 === 0 ? "rgba(var(--text-rgb), .01)" : "transparent",
                                 }}>
                                     <span style={{
                                         fontFamily: "'Rajdhani',sans-serif", fontSize: "12px",
@@ -128,7 +128,7 @@ export default function ProductModal({ product, onClose }) {
                                     }}>{s.label}</span>
                                     <span style={{
                                         fontFamily: "'Rajdhani',sans-serif", fontSize: "12px",
-                                        letterSpacing: "1px", color: "rgba(255,255,255,.85)", fontWeight: 600
+                                        letterSpacing: "1px", color: "rgba(var(--text-rgb), .85)", fontWeight: 600
                                     }}>{s.value}</span>
                                 </div>
                             ))}

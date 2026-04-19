@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import Logo from "./Logo";
 import Sidebar from "./Sidebar";
+import ThemeToggle from "./ThemeToggle";
 
 export default function Navbar() {
     const [scrolled, setScrolled] = useState(false);
@@ -16,9 +17,9 @@ export default function Navbar() {
     return (
         <nav style={{
             position: "fixed", top: 0, left: 0, right: 0, zIndex: 200,
-            background: scrolled ? "rgba(7,7,15,0.97)" : "transparent",
+            background: scrolled ? "var(--bg-glass)" : "transparent",
             backdropFilter: scrolled ? "blur(24px)" : "none",
-            borderBottom: scrolled ? "1px solid rgba(255,92,26,.12)" : "none",
+            borderBottom: scrolled ? "1px solid var(--border)" : "none",
             transition: "all .4s ease",
             padding: "0 5%", height: "72px",
             display: "flex", alignItems: "center", justifyContent: "space-between",
@@ -28,7 +29,7 @@ export default function Navbar() {
                 <div>
                     <div style={{
                         fontFamily: "'Orbitron',sans-serif", fontSize: "16px",
-                        fontWeight: 900, letterSpacing: "4px", color: "#fff", lineHeight: 1
+                        fontWeight: 900, letterSpacing: "4px", color: "var(--title)", lineHeight: 1
                     }}>SUNBOW</div>
                     <div style={{
                         fontFamily: "'Rajdhani',sans-serif", fontSize: "9px",
@@ -52,7 +53,7 @@ export default function Navbar() {
                         {megaMenu && (
                             <div style={{
                                 position: "absolute", top: "100%", left: "-100px", width: "400px",
-                                background: "var(--card)", border: "1px solid rgba(255,255,255,0.1)",
+                                background: "var(--card)", border: "1px solid rgba(var(--text-rgb), 0.1)",
                                 borderRadius: "8px", padding: "24px", display: "grid", gridTemplateColumns: "1fr 1fr",
                                 gap: "16px", boxShadow: "0 20px 60px rgba(0,0,0,0.8)", zIndex: 300,
                                 animation: "fadeIn 0.2s ease"
@@ -76,17 +77,22 @@ export default function Navbar() {
                     <a href="/offers" className="nav-link" style={{ color: "#FFB347" }}>Offers</a>
                 </div>
 
+                {/* THEME TOGGLE */}
+                <div style={{ display: "flex", alignItems: "center" }}>
+                    <ThemeToggle />
+                </div>
+
                 {/* QUOTE CART */}
                 <div style={{
                     position: "relative", cursor: "pointer", display: "flex", alignItems: "center",
                     justifyContent: "center", width: "40px", height: "40px",
-                    background: "rgba(255,255,255,0.05)", borderRadius: "50%",
-                    border: "1px solid rgba(255,255,255,0.1)"
+                    background: "rgba(var(--text-rgb),0.05)", borderRadius: "50%",
+                    border: "1px solid rgba(var(--text-rgb),0.1)"
                 }}>
                     <span style={{ fontSize: "18px" }}>🛒</span>
                     <div style={{
                         position: "absolute", top: "-4px", right: "-4px",
-                        background: "var(--orange)", color: "#fff",
+                        background: "var(--orange)", color: "var(--title)",
                         width: "18px", height: "18px", borderRadius: "50%",
                         fontSize: "10px", display: "flex", alignItems: "center",
                         justifyContent: "center", fontFamily: "'Rajdhani', sans-serif", fontWeight: 700
@@ -94,7 +100,7 @@ export default function Navbar() {
                 </div>
 
                 <button onClick={() => setSidebarOpen(true)} style={{
-                    background: "none", border: "none", color: "#fff", cursor: "pointer",
+                    background: "none", border: "none", color: "var(--title)", cursor: "pointer",
                     fontSize: "24px", display: "flex", alignItems: "center"
                 }}>
                     ☰

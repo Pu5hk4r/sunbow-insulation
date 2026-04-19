@@ -45,17 +45,17 @@ export default function AIChatbot() {
                         background: "linear-gradient(90deg, #00A8E8, #2A5298)", padding: "16px",
                         display: "flex", justifyContent: "space-between", alignItems: "center"
                     }}>
-                        <div style={{ color: "#fff", fontFamily: "'Rajdhani', sans-serif", fontSize: "18px", fontWeight: "700" }}>
+                        <div style={{ color: "var(--title)", fontFamily: "'Rajdhani', sans-serif", fontSize: "18px", fontWeight: "700" }}>
                             <span style={{ marginRight: "8px" }}>🤖</span>Sunbow AI Assistant
                         </div>
-                        <button onClick={() => setOpen(false)} style={{ background: "none", border: "none", color: "#fff", cursor: "pointer" }}>✕</button>
+                        <button onClick={() => setOpen(false)} style={{ background: "none", border: "none", color: "var(--title)", cursor: "pointer" }}>✕</button>
                     </div>
 
                     <div style={{ flex: 1, padding: "16px", overflowY: "auto", display: "flex", flexDirection: "column", gap: "12px" }}>
                         {msgs.map((m, i) => (
                             <div key={i} style={{
                                 alignSelf: m.src === "ai" ? "flex-start" : "flex-end",
-                                background: m.src === "ai" ? "rgba(255,255,255,0.05)" : "rgba(0, 168, 232, 0.2)",
+                                background: m.src === "ai" ? "rgba(var(--text-rgb), 0.05)" : "rgba(0, 168, 232, 0.2)",
                                 padding: "12px 16px", borderRadius: "12px", borderBottomLeftRadius: m.src === "ai" ? 0 : "12px",
                                 borderBottomRightRadius: m.src === "user" ? 0 : "12px", maxWidth: "85%",
                                 fontFamily: "'Inter', sans-serif", fontSize: "14px", color: "var(--text)", lineHeight: 1.5
@@ -65,14 +65,14 @@ export default function AIChatbot() {
                         ))}
                     </div>
 
-                    <div style={{ padding: "12px", borderTop: "1px solid rgba(255,255,255,0.05)", display: "flex", gap: "8px" }}>
+                    <div style={{ padding: "12px", borderTop: "1px solid rgba(var(--text-rgb), 0.05)", display: "flex", gap: "8px" }}>
                         <input value={val} onChange={e => setVal(e.target.value)} onKeyDown={e => e.key === "Enter" && send()} placeholder="Ask about insulation..." style={{
-                            flex: 1, background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)",
-                            padding: "10px 16px", color: "#fff", borderRadius: "24px", outline: "none", fontFamily: "'Inter', sans-serif", fontSize: "14px"
+                            flex: 1, background: "rgba(var(--text-rgb), 0.05)", border: "1px solid rgba(var(--text-rgb), 0.1)",
+                            padding: "10px 16px", color: "var(--title)", borderRadius: "24px", outline: "none", fontFamily: "'Inter', sans-serif", fontSize: "14px"
                         }} />
                         <button onClick={send} style={{
                             background: "#00A8E8", border: "none", width: "40px", height: "40px",
-                            borderRadius: "50%", color: "#fff", cursor: "pointer", display: "flex", 
+                            borderRadius: "50%", color: "var(--title)", cursor: "pointer", display: "flex", 
                             alignItems: "center", justifyContent: "center"
                         }}>➤</button>
                     </div>

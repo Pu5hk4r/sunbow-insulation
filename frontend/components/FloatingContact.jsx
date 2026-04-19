@@ -16,13 +16,13 @@ export default function FloatingContact() {
                 onMouseLeave={() => setHoverEmail(false)}
                 style={{
                     display: "flex", alignItems: "center", justifyContent: "flex-end",
-                    textDecoration: "none", color: "#fff"
+                    textDecoration: "none", color: "var(--title)"
                 }}
             >
                 <div style={{
                     overflow: "hidden", display: "flex", alignItems: "center",
-                    background: "rgba(255,255,255,0.1)", backdropFilter: "blur(8px)",
-                    border: "1px solid rgba(255,255,255,0.2)",
+                    background: "rgba(var(--text-rgb), 0.1)", backdropFilter: "blur(8px)",
+                    border: "1px solid rgba(var(--text-rgb), 0.2)",
                     borderRadius: "24px", padding: hoverEmail ? "0 16px" : "0",
                     width: hoverEmail ? "140px" : "0", opacity: hoverEmail ? 1 : 0,
                     height: "48px", transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
@@ -38,7 +38,7 @@ export default function FloatingContact() {
                     display: "flex", alignItems: "center", justifyContent: "center",
                     boxShadow: "0 8px 30px rgba(255,92,26,0.3)", transition: "transform 0.3s",
                     transform: hoverEmail ? "scale(1.1)" : "scale(1)",
-                    fontSize: "24px", color: "#fff", border: "2px solid rgba(255,255,255,0.2)"
+                    fontSize: "24px", color: "var(--title)", border: "2px solid rgba(var(--text-rgb), 0.2)"
                 }}>
                     ✉️
                 </div>

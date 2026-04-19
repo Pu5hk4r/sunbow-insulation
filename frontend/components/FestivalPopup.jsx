@@ -32,13 +32,13 @@ export default function FestivalPopup() {
                 background: "var(--card)", border: "2px solid var(--orange)",
                 width: "90%", maxWidth: "500px", borderRadius: "16px",
                 position: "relative", overflow: "hidden", textAlign: "center",
-                boxShadow: "0 20px 80px rgba(255,92,26,0.4), 0 0 0 1px rgba(255,255,255,0.1)"
+                boxShadow: "0 20px 80px rgba(255,92,26,0.4), 0 0 0 1px rgba(var(--text-rgb), 0.1)"
             }}>
                 <button 
                     onClick={handleClose}
                     style={{
                         position: "absolute", top: "16px", right: "16px",
-                        background: "rgba(0,0,0,0.5)", border: "none", color: "#fff",
+                        background: "rgba(0,0,0,0.5)", border: "none", color: "var(--title)",
                         width: "32px", height: "32px", borderRadius: "50%",
                         cursor: "pointer", fontSize: "16px", zIndex: 10
                     }}

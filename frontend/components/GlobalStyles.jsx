@@ -11,6 +11,26 @@ export default function GlobalStyles() {
           --orange:    #FF5C1A;
           --orange-lt: #FF7A3D;
           --gold:      #FFB347;
+        }
+
+        /* Default is system preference, next-themes will use class="dark" or class="light" */
+        [data-theme='light'], .light {
+          --dark:      #fdfdfd;   /* Kept name --dark for compatibility */
+          --card:      #f5f5f5;
+          --card2:     #eaeaea;
+          --border:    rgba(255,92,26,0.3);
+          --border-w:  rgba(0,0,0,0.1);
+          --text:      rgba(0,0,0,0.85);
+          --muted:     rgba(0,0,0,0.5);
+          --dim:       rgba(0,0,0,0.15);
+          
+          --title:     #111;
+          --bg-glass:  rgba(255,255,255,0.9);
+          --text-rgb:  0, 0, 0;
+          --skeleton-bg: linear-gradient(90deg, #eaeaea 25%, #dfdfdf 50%, #eaeaea 75%);
+        }
+
+        [data-theme='dark'], .dark {
           --dark:      #07070F;
           --card:      #0E0E1C;
           --card2:     #111120;
@@ -19,6 +39,11 @@ export default function GlobalStyles() {
           --text:      rgba(255,255,255,0.85);
           --muted:     rgba(255,255,255,0.4);
           --dim:       rgba(255,255,255,0.15);
+
+          --title:     #fff;
+          --bg-glass:  rgba(7,7,15,0.97);
+          --text-rgb:  255, 255, 255;
+          --skeleton-bg: linear-gradient(90deg, #1a1a2e 25%, #22223a 50%, #1a1a2e 75%);
         }
     
         html { scroll-behavior: smooth; }
@@ -74,7 +99,7 @@ export default function GlobalStyles() {
         }
         .title {
           font-family:'Rajdhani',sans-serif; font-weight:700;
-          color:#fff; line-height:.93;
+          color:var(--title); line-height:.93;
         }
     
         .btn-orange {
@@ -90,7 +115,7 @@ export default function GlobalStyles() {
     
         .btn-ghost {
           display:inline-flex; align-items:center; gap:10px;
-          border:1px solid rgba(255,255,255,.2); color:#fff; padding:14px 32px;
+          border:1px solid var(--border-w); color:var(--title); padding:14px 32px;
           text-decoration:none; font-family:'Rajdhani',sans-serif; font-size:13px;
           letter-spacing:3px; font-weight:700; background:transparent; cursor:pointer;
           clip-path:polygon(12px 0%,100% 0%,calc(100% - 12px) 100%,0% 100%);
@@ -112,7 +137,7 @@ export default function GlobalStyles() {
         .nav-link:hover::after { width:100%; }
     
         .skeleton {
-          background: linear-gradient(90deg, #1a1a2e 25%, #22223a 50%, #1a1a2e 75%);
+          background: var(--skeleton-bg);
           background-size: 400px 100%;
           animation: shimmer 1.5s infinite;
         }

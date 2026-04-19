@@ -104,7 +104,7 @@ export default function Hero() {
                 <h1 style={{
                     fontFamily: "'Rajdhani',sans-serif",
                     fontSize: "clamp(54px,9vw,128px)",
-                    lineHeight: .87, fontWeight: 700, color: "#fff", marginBottom: "20px",
+                    lineHeight: .87, fontWeight: 700, color: "var(--title)", marginBottom: "20px",
                     opacity: loaded ? 1 : 0, transform: loaded ? "none" : "translateY(40px)",
                     transition: "all .7s ease .1s",
                 }}>
@@ -119,12 +119,12 @@ export default function Hero() {
 
                 <p style={{
                     fontFamily: "'Inter',sans-serif", fontSize: "16px", fontWeight: 300,
-                    color: "rgba(255,255,255,.5)", maxWidth: "480px", lineHeight: 1.85, marginBottom: "40px",
+                    color: "rgba(var(--text-rgb), .5)", maxWidth: "480px", lineHeight: 1.85, marginBottom: "40px",
                     opacity: loaded ? 1 : 0, transition: "all .7s ease .2s",
                 }}>
                     Premium fiberglass, silicone &amp; electrical insulation materials trusted by
-                    <strong style={{ color: "rgba(255,255,255,.8)" }}> 10,000+ industries</strong> across
-                    <strong style={{ color: "rgba(255,255,255,.8)" }}> 50+ countries</strong>.
+                    <strong style={{ color: "rgba(var(--text-rgb), .8)" }}> 10,000+ industries</strong> across
+                    <strong style={{ color: "rgba(var(--text-rgb), .8)" }}> 50+ countries</strong>.
                 </p>
 
                 <div style={{
@@ -137,12 +137,12 @@ export default function Hero() {
 
                 <div style={{
                     display: "grid", gridTemplateColumns: "repeat(4,1fr)",
-                    borderTop: "1px solid rgba(255,255,255,.08)", paddingTop: "36px", marginTop: "60px",
+                    borderTop: "1px solid rgba(var(--text-rgb), .08)", paddingTop: "36px", marginTop: "60px",
                     opacity: loaded ? 1 : 0, transition: "all .8s ease .5s",
                 }}>
                     {STATS.map((s, i) => (
                         <div key={i} style={{
-                            borderRight: i < 3 ? "1px solid rgba(255,255,255,.08)" : "none",
+                            borderRight: i < 3 ? "1px solid rgba(var(--text-rgb), .08)" : "none",
                             paddingRight: "24px", marginRight: i < 3 ? "24px" : 0,
                         }}>
                             <div style={{ fontSize: "28px", marginBottom: "4px" }}>{s.icon}</div>

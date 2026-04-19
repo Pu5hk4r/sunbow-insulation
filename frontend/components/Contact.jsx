@@ -15,8 +15,8 @@ export default function Contact() {
     };
 
     const inp = {
-        width: "100%", background: "rgba(255,255,255,.03)", border: "none",
-        borderBottom: "1px solid rgba(255,92,26,.3)", color: "#fff",
+        width: "100%", background: "rgba(var(--text-rgb), .03)", border: "none",
+        borderBottom: "1px solid rgba(255,92,26,.3)", color: "var(--title)",
         padding: "12px 0", marginBottom: "18px", fontSize: "14px", fontWeight: 300,
         fontFamily: "'Inter',sans-serif", outline: "none", boxSizing: "border-box",
         transition: "border-color .2s",
@@ -43,7 +43,7 @@ export default function Contact() {
                             lineHeight: 1.85, marginBottom: "48px", fontWeight: 300,
                         }}>
                             Share your requirement — our technical team responds within
-                            <strong style={{ color: "rgba(255,255,255,.8)" }}> 2 hours </strong>
+                            <strong style={{ color: "rgba(var(--text-rgb), .8)" }}> 2 hours </strong>
                             with detailed specifications and competitive pricing.
                         </p>
 
@@ -69,7 +69,7 @@ export default function Contact() {
                                     }}>{c.label}</div>
                                     <div style={{
                                         fontFamily: "'Rajdhani',sans-serif", fontSize: "14px",
-                                        fontWeight: 600, color: "rgba(255,255,255,.8)"
+                                        fontWeight: 600, color: "rgba(var(--text-rgb), .8)"
                                     }}>{c.val}</div>
                                 </div>
                             </div>
@@ -79,7 +79,7 @@ export default function Contact() {
                             target="_blank" rel="noopener noreferrer"
                             style={{
                                 display: "inline-flex", alignItems: "center", gap: "12px",
-                                background: "#25D366", color: "#fff", padding: "14px 28px",
+                                background: "#25D366", color: "var(--title)", padding: "14px 28px",
                                 textDecoration: "none", fontFamily: "'Rajdhani',sans-serif",
                                 fontSize: "13px", letterSpacing: "2px", fontWeight: 700,
                                 animation: "glow 2s ease-in-out infinite",
@@ -101,7 +101,7 @@ export default function Contact() {
                                 <div style={{ fontSize: "48px", marginBottom: "20px" }}>✅</div>
                                 <h3 style={{
                                     fontFamily: "'Rajdhani',sans-serif", fontSize: "24px",
-                                    color: "#fff", marginBottom: "12px"
+                                    color: "var(--title)", marginBottom: "12px"
                                 }}>REQUEST RECEIVED</h3>
                                 <p style={{ color: "var(--muted)", fontSize: "14px", lineHeight: 1.6 }}>
                                     Thank you! Our technical sales team will review your requirements and send a quote shortly.
@@ -109,7 +109,7 @@ export default function Contact() {
                             </div>
                         ) : (
                             <div style={{
-                                background: "var(--card)", border: "1px solid rgba(255,255,255,.06)",
+                                background: "var(--card)", border: "1px solid rgba(var(--text-rgb), .06)",
                                 padding: "40px", position: "relative"
                             }}>
                                 <div style={{
@@ -118,7 +118,7 @@ export default function Contact() {
                                 }} />
                                 <h3 style={{
                                     fontFamily: "'Rajdhani',sans-serif", fontSize: "20px",
-                                    color: "#fff", marginBottom: "24px", letterSpacing: "1px"
+                                    color: "var(--title)", marginBottom: "24px", letterSpacing: "1px"
                                 }}>SEND DIRECT ENQUIRY</h3>
 
                                 <input placeholder="Your Name *" style={inp} />

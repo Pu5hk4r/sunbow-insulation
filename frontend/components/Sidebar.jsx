@@ -31,7 +31,7 @@ export default function Sidebar({ isOpen, onClose }) {
                         letterSpacing: "3px", color: "var(--orange)", fontWeight: 700 
                     }}>MENU</span>
                     <button onClick={onClose} style={{
-                        background: "none", border: "none", color: "#fff",
+                        background: "none", border: "none", color: "var(--title)",
                         fontSize: "24px", cursor: "pointer", opacity: 0.6
                     }}>✕</button>
                 </div>

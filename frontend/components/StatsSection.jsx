@@ -24,7 +24,7 @@ export default function StatsSection() {
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: "2px" }}>
                     {STATS.map((s, i) => (
                         <div key={i} style={{
-                            background: "var(--card)", border: "1px solid rgba(255,255,255,.06)",
+                            background: "var(--card)", border: "1px solid rgba(var(--text-rgb), .06)",
                             padding: "32px 24px", textAlign: "center", position: "relative",
                             opacity: inView ? 1 : 0, transform: inView ? "none" : "translateY(30px)",
                             transition: `all .6s ease ${i * .12}s`,

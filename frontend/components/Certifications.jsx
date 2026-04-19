@@ -27,7 +27,7 @@ export default function Certifications() {
                 }}>
                     {CERTIFICATIONS.map((c, i) => (
                         <div key={i} style={{
-                            background: "var(--card)", border: "1px solid rgba(255,255,255,.06)",
+                            background: "var(--card)", border: "1px solid rgba(var(--text-rgb), .06)",
                             padding: "40px 28px", textAlign: "center", position: "relative", overflow: "hidden",
                             opacity: inView ? 1 : 0, transform: inView ? "none" : "translateY(30px)",
                             transition: `all .5s ease ${i * .1}s`,
@@ -37,7 +37,7 @@ export default function Certifications() {
                                 e.currentTarget.style.background = `rgba(${parseInt(c.color.slice(1,3),16)},${parseInt(c.color.slice(3,5),16)},${parseInt(c.color.slice(5,7),16)},0.05)`;
                             }}
                             onMouseLeave={e => {
-                                e.currentTarget.style.borderColor = "rgba(255,255,255,.06)";
+                                e.currentTarget.style.borderColor = "rgba(var(--text-rgb), .06)";
                                 e.currentTarget.style.background = "var(--card)";
                             }}
                         >
@@ -54,7 +54,7 @@ export default function Certifications() {
                             </div>
                             <div style={{
                                 fontFamily: "'Orbitron',sans-serif", fontSize: "13px",
-                                fontWeight: 700, letterSpacing: "2px", color: "#fff", marginBottom: "6px"
+                                fontWeight: 700, letterSpacing: "2px", color: "var(--title)", marginBottom: "6px"
                             }}>{c.name}</div>
                             <div style={{
                                 fontFamily: "'Rajdhani',sans-serif", fontSize: "11px",
